@@ -138,7 +138,7 @@ class BookTransaction extends React.Component {
    return transactionType;
   }
   checkStudentEligibilityForBookIssue=async ()=>{
-      var studentRef= await db.collection("students").where("studentID","==",this.state.scannedStudentId).get();
+      var studentRef= await db.collection("students").where("studentId","==",this.state.scannedStudentId).limit(1).get();
       var isStudentEligible="";
       if(studentRef.docs.length==0){
         isStudentEligible=false;
